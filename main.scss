@@ -1,0 +1,74 @@
+body {
+
+    background: #051514;
+    margin: 1.5em;
+    font-family: 'Poppins', sans-serif;
+}
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+nav {
+display: none;
+}
+
+.logo-container {
+    display: flex;
+
+}
+.logo {
+    color: white;
+    font-weight: bold;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+}
+svg {
+    width: 2em;
+    cursor: pointer;
+    fill:#186b64;
+}
+section.hero {
+    margin-top:5em ;
+    color: white;
+}
+.surname {
+    color: #22958c;
+}
+
+.williams {
+    color: #22958c;
+}
+.major {
+    color:#22958c; 
+}
+.name {
+    font-size: 4rem;
+    line-height: 1em;
+}
+.P {
+    color:#22958c;
+}
+.O {
+    color:#22958c;
+}
+.school {
+    font-size: 1.3rem;
+}
+.degrees {
+    font-size: 1rem;
+
+}
+.personal-description {
+    font-size: .9rem;
+
+
+}
+.personal-description-container {
+    text-align: center;
+    border: 0.1em solid;
+    border-color: #186b64;
+    padding: 1em;
+
+}

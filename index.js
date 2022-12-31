@@ -1,3 +1,5 @@
+import "https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js";
+
 const viewIcon1 = document.getElementById("view-1-icon");
 const image1 = document.getElementById("project-1-image");
 const viewIcon2 = document.getElementById("view-2-icon");
@@ -11,8 +13,25 @@ const viewIcon5 = document.getElementById("view-5-icon");
 const image6 = document.getElementById("project-6-image");
 const viewIcon6 = document.getElementById("view-6-icon");
 
+const scrollTracker = document.querySelector(".scroll-tracker");
 
 
+const scrollTrackingTimeline = new ScrollTimeline({
+    source: document.scrollingElement,
+    orientation: "block",
+    scrollOffsets: [CSS.percent(0), CSS.percent(100)]
+})
+
+
+scrollTracker.animate({
+    transform: ['scaleX(0)', 'scaleX(1)'],
+
+},
+    {
+        duration: 1,
+        timeline: scrollTrackingTimeline,
+    }
+)
 
 
 function hideIcon1() { 

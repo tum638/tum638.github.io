@@ -5,16 +5,29 @@
     body {
 
         background: #051514;
-        margin: 1.5em;
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+
         font-family: 'Poppins', sans-serif;
+    }
+    .scroll-tracker {
+        position: fixed;
+        transform-origin: left;
+        left: 0;
+        width: 100% ;
+        height: 1rem;
+        background-color:grey;
+        margin-top: -5em;
+        z-index:200000
     }
  
     a {
+
         text-decoration: none;
         font-size: 1.3rem;
     }
     nav {
-         
+        
     position: fixed;
     right: 0;
     top: 0;
@@ -82,6 +95,7 @@
     header {
         display: flex;
         justify-content: space-between;
+        margin-top: 3em;
     }
     svg {
         width: 2em;
@@ -274,6 +288,8 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+   
+   
     section.projects {
 
         width: 100%;
@@ -372,7 +388,7 @@
         padding:2em;
         margin-top: 5em;
         width: 90%;
-        // background-color:#022422;
+        // background-color:blue;
         background-color:#022422;
         margin-left:auto;
         margin-right:auto;
@@ -585,6 +601,7 @@
         line-height: 1em;
         position: relative;
         width: max-content;
+        height: 4.5rem;
         
     }
         .name::before, .name::after {
@@ -602,9 +619,15 @@
         }
         .name::after {
             width: 0.2rem;
+
             background-color: white;
             animation: typewriter 1.5s steps(18) 1s forwards,
             blink 700ms steps(18) infinite;
+        }
+        .degrees {
+            opacity: 0;
+            transform: translateY(3rem);
+            animation: fadeInUp 2s ease 2.2s forwards;
         }
 
     @keyframes typewriter {
@@ -617,12 +640,23 @@
             background: transparent;
         }
     }
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
     @media only screen and (min-width: 920px) {
         .bar {
             display: none;
         }
         .close {
             display: none
+        }
+        .skill-details {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
         }
         nav {
             transform: translateX(0);

@@ -12,7 +12,9 @@ import "https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js";
     const image5 = document.getElementById("project-5-image");
     const viewIcon5 = document.getElementById("view-5-icon");
     const image6 = document.getElementById("project-6-image");
-    const viewIcon6 = document.getElementById("view-6-icon");
+const viewIcon6 = document.getElementById("view-6-icon");
+    const image7 = document.getElementById("project-7-image");
+    const viewIcon7 = document.getElementById("view-7-icon");
     const images = document.querySelectorAll(".img-container");
     const githubLink = document.querySelector(".access-git-p");
     const githubDiv = document.querySelector(".access-git");
@@ -21,13 +23,18 @@ import "https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js";
 const homeNavLink = document.querySelector(".home-nav-link");
 const skillsNavLink = document.querySelector(".skills-nav-link");
 const projectsNavLink = document.querySelector(".projects-nav-link");
-                const educationNavLink = document.querySelector(".education-nav-link");
+const educationNavLink = document.querySelector(".education-nav-link");
+const menu = document.querySelector(".menu")
+const nav = document.querySelector('nav')
+const close = document.querySelector(".close");
 const links = ["https://github.com/leemabhena/logahs-website",
 "https://github.com/tum638/Library_Manager",
 "https://github.com/tum638/web102_prework",
 "https://github.com/tum638/AI-driven-tic-tac-toe",
 "https://github.com/tum638/AI-driven-minesweeper",
-"https://github.com/tum638/ecommerce"]
+    "https://github.com/tum638/ecommerce",
+    "https://github.com/tum638/tumpersonal"
+]
 const descriptions = [`This is school website provides important information
 to students, parents and stuff such news, announcements, schedules, calendars, resources and forms.
 It also has a neat contact us feature. We made the frontend using react and the backend API using django rest framework.
@@ -43,7 +50,10 @@ an efficient way of storing data for new books in the database. I developed the 
 "A pygame tic-tac-toe that uses the minimax-algorithm to generate optimum moves for the computer. Inspired by CS50-AI",
 "A minesweeper pygame that uses concepts of knowledge and logic to suggest moves to the player.",
 `An ecommerce site that allows users to bid for items, add items to a wathlist and do general buying and selling of products. The app was
-created using django and django templates`]
+created using django and django templates`,
+    `This is a website I created to showcase my past projects, education, skills and experience. It's also a way through which anyone
+    who is interested to me can reach out. I created the website using HTML, CSS and javascript. Feel free to reach out!`
+]
 
 const modal = document.querySelector(".modal");
 const blurpage = document.querySelector(".blur-page");
@@ -51,8 +61,9 @@ const blurpage = document.querySelector(".blur-page");
 const form = document.getElementById("submit-form");
 const submitButton = document.querySelector(".send-btn")
     
-    
-
+ 
+   
+let visible = false;
 githubDiv.addEventListener("click", function () {
     modal.style.display = "none";
     blurpage.style.display = "none";
@@ -63,6 +74,9 @@ closeIcon.addEventListener("click", function () {
     blurpage.style.display = "none";
     visible = false;
 })  
+menu.addEventListener("click", () => {
+    nav.classList.add('open-nav');
+})
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
         sendEmail();
@@ -73,7 +87,7 @@ blurpage.addEventListener("click", function () {
     visible = false;
 })
 
-    let visible = false;
+    
 getInTouchButton.addEventListener("click", () => {
     scrollToSection("contactme");
 })
@@ -146,23 +160,45 @@ function scrollToSection(id) {
 
 }
 function sendEmail() {
-    const userName = document.getElementById("user-name").value;
-    const userEmail = document.getElementById("user-email").value;
-    const userMessage = document.getElementById("user-message").value;
-    Email.send({
-    Host : "smtp.gmail.com",
-    Username : "tanatswamanyakara638@gmail.com",
-    Password : "zdhigumlnxoeozoi",
-    To : 'tum1@williams.edu',
-    From : `${userEmail}`,
-    Subject : `You have received a message on your website from ${userName} `,
-        Body: `The message reads:
-        ${userMessage}
-     `
-}).then(
-  message => alert("message sent!"
-    ));
+    let userName = document.getElementById("user-name").value;
+    let userEmail = document.getElementById("user-email").value;
+    let userMessage = document.getElementById("user-message").value;
+    const apiKey = 'B5179DE80628688F996DEB856B34B7997F6683E9D4BA3E60B8909E2B55C04A3291275789A79CB59E2F83F9E8BA741127';
+    const email = "tum1@williams.edu";
+    const from = "tanatswamanyakara638@gmail.com"
+    const subject = `Portfolio email from ${userName}`;
+    const body = `Hi Tanatswa!
+    You have a new email on your Portfolio from ${userName}.
 
+    The body of the email is:
+    #######
+      ${userMessage}
+    #######
+    The contacters email address is ${userEmail}
+   
+     `
+    fetch("https://api.elasticemail.com/v2/email/send", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `apikey=${apiKey}&to=${email}&from=${from}&subject=${subject}&body=${body}`,
+    })
+        .then((response) => {
+            if (response.ok) {
+                alert("Your message was successfully sent!")
+            }
+            else {
+                alert("Something went wrong, please try again later.")
+            }
+        }
+            
+         )
+    document.getElementById("user-name").value = "";
+    document.getElementById("user-email").value = "";
+    document.getElementById("user-message").value = "";
+
+     
 
 }
 function hideIcon1() { 
@@ -205,6 +241,12 @@ function hideIcon6() {
 function showIcon6() {
     viewIcon6.classList.remove('hidden');
 }
+function hideIcon7() {
+    viewIcon7.classList.add('hidden');
+}
+function showIcon7() {
+    viewIcon7.classList.remove('hidden');
+}
 
 image1.addEventListener("mouseleave", hideIcon1);
 image1.addEventListener("mouseenter", showIcon1);
@@ -218,4 +260,7 @@ image5.addEventListener("mouseleave", hideIcon5);
 image5.addEventListener("mouseenter", showIcon5);
 image6.addEventListener("mouseleave", hideIcon6);
 image6.addEventListener("mouseenter", showIcon6);
+image7.addEventListener("mouseleave", hideIcon6);
+image7.addEventListener("mouseenter", showIcon6);
+
 

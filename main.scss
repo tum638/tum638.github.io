@@ -9,6 +9,7 @@
         margin-right: 1.5em;
 
         font-family: 'Poppins', sans-serif;
+       
     }
     .scroll-tracker {
         position: fixed;
@@ -152,7 +153,7 @@
         padding: 1em;
     
     }
-    button {
+    .get-in-touch-link {
         border: 0.1em solid;
         border-color: #186b64;
         background: none;
@@ -161,7 +162,7 @@
         padding: 1em;
         
     }
-    button:hover {
+    .get-in-touch-link:hover {
         cursor: pointer;
         background:  #186b64;
     }
@@ -291,10 +292,12 @@
    
    
     section.projects {
-
+        position: relative;
         width: 100%;
         align-items: center;
         justify-content: center;
+
+        z-index: 1;
     }
 
     .project1 {
@@ -420,8 +423,6 @@
     }
     .tools-used {
 
-
-
         display: flex;
         justify-content:space-around;
         margin-top: 0.5em;
@@ -478,6 +479,7 @@
         width: 16em;
         height: 2em;
 
+
     }
         }
 
@@ -499,7 +501,7 @@
             height: 100%;
             object-fit: cover;
             overflow: hidden;
-            clip-path: inset(0% 10% 20% 10%);
+            clip-path: inset(0% 10% 10% 10%);
 
         }
 
@@ -515,25 +517,32 @@
             height: 100%;
              .name-surname {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
            .textbox {
-                margin: 0.7em;
+                margin: 0.4em;
                 width: 15em;
                 height: 3em;
                 padding: 0.5em;
                 border: none;
                 background-color: #000;
                 opacity: 0.6;
+                color:white;
+                font-weight: 700;
+                font-size: 1rem;
 
             }
             .email {
                 width: 15em;
                 height: 3em;
-                margin: 0.7em;
+                margin: 0.4em;
                 padding: 0.5em;
                 border: none;
                 background-color: #000;
                 opacity: 0.6;
+                color: white;
+                font-weight: 700;
+                font-size:1rem;
             }
            
         }
@@ -546,15 +555,18 @@
         
 
             .textarea {
-                width: 32.5em;
+                width: 57%;
                 height:15em;
                 margin-left: auto;
                 opacity: 0.6; 
                 margin-right: auto;
                 border:none;
                 margin-top: 0.7em;
-                
+                color: white;
                 background-color: #000;
+                padding: 0.5em;
+                font-weight: 700;
+                font-size:1rem;
             }
             
             .send-btn {
@@ -586,8 +598,111 @@
     }
     }
     
+    p.reach {
+        font-weight: 110;
+        font-size: small;
+    }
+    .modal {
 
 
+
+        display: block;
+        padding: 2em;
+        position:fixed;
+        top: 50%;   
+        right: 50%;
+        bottom: 10%;
+        left: 50%;
+        background-color:#022422;
+
+        color: white;
+        width: 70vw;
+        height:50vh;
+        border: none;
+
+        z-index: 999999;
+        transform: translate(-50%, -50%);
+        .dialog-header {
+
+            display: flex;  
+            justify-content: space-between;
+            align-items: center;
+
+            margin-left: auto;
+            margin-right: auto;
+            .close-modal-icon {
+              &:hover {
+                g {
+                    fill: grey;
+                }
+                
+              }
+            }
+        }
+         .dialog-desc {
+
+
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: 5rem;
+
+        }
+        .access-git {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 5rem;
+            background-color:black;
+            margin-left:auto;
+            margin-right: auto;
+            width: 40%;
+            cursor: pointer;
+            height: 5rem;
+            color: white;
+
+            a {
+                // background-color: blue;
+               
+                color: white;
+             
+            }
+                  &:hover a {
+                background-color: white;
+                color: #022422;
+            }
+            &:hover {
+               background-color: white;
+                color: #022422; 
+            }
+
+            
+           
+
+        }
+        }
+       
+
+        
+        
+    
+    .blur-page {
+        // display:none;
+        position: fixed;
+        top: 0;
+        right:0;
+        left:0;
+        z-index: 8888; 
+        background-color: black;
+        width:100%;
+        height: 100%;
+        opacity: 0.7;
+        
+
+    }
+   
      
     
     @media only screen and (min-width: 680px) {
@@ -622,7 +737,7 @@
 
             background-color: white;
             animation: typewriter 1.5s steps(18) 1s forwards,
-            blink 700ms steps(18) infinite;
+            blink 900ms steps(18) infinite;
         }
         .degrees {
             opacity: 0;
@@ -678,8 +793,8 @@
                         background: #051514;
                         // background: #022422;
                         color: white;
-                        border-bottom: 0.1em solid;
-                        border-top: 0.1em solid;
+                        border-top: 1px solid white;
+                        border-bottom: 1px solid white;
                     }
                 }
 

@@ -20,12 +20,17 @@ const viewIcon6 = document.getElementById("view-6-icon");
     const githubDiv = document.querySelector(".access-git");
     const closeIcon = document.querySelector(".close-modal-icon");
     const getInTouchButton = document.querySelector(".get-in-touch-link")
-const homeNavLink = document.querySelector(".home-nav-link");
-const skillsNavLink = document.querySelector(".skills-nav-link");
-const projectsNavLink = document.querySelector(".projects-nav-link");
-const educationNavLink = document.querySelector(".education-nav-link");
+const homeNavLink = document.querySelector(".home-nav-link-main");
+const skillsNavLink = document.querySelector(".skills-nav-link-main");
+const projectsNavLink = document.querySelector(".projects-nav-link-main");
+const educationNavLink = document.querySelector(".education-nav-link-main");
+const homeNavLinkBlack = document.querySelector(".home-nav-link");
+const skillsNavLinkBlack = document.querySelector(".skills-nav-link");
+const projectsNavLinkBlack = document.querySelector(".projects-nav-link");
+const educationNavLinkBlack = document.querySelector(".education-nav-link");
+
 const menu = document.querySelector(".menu")
-const nav = document.querySelector('nav')
+const nav = document.querySelector('.main-nav')
 const close = document.querySelector(".close");
 const links = ["https://github.com/leemabhena/logahs-website",
 "https://github.com/tum638/Library_Manager",
@@ -57,13 +62,46 @@ created using django and django templates`,
 
 const modal = document.querySelector(".modal");
 const blurpage = document.querySelector(".blur-page");
+const fixedHeader = document.querySelector(".scroll")
+const listItems = fixedHeader.querySelector("ul")
+const scrollerHamburger = document.querySelector(".menu-scroll-container")
+
+
     
-const form = document.getElementById("submit-form");
+
 const submitButton = document.querySelector(".send-btn")
     
  
    
 let visible = false;
+const hideFixedHeader = () => {
+    if (window.matchMedia("(min-width:680px)").matches) {
+        scrollerHamburger.classList.add("hidden");
+        listItems.classList.remove("hidden")
+        fixedHeader.classList.remove("hidden");
+    } else {
+        scrollerHamburger.classList.remove('hidden');
+        listItems.classList.add("hidden");
+        fixedHeader.classList.add("hidden");
+
+    }
+}
+hideFixedHeader();
+
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 120) {
+    scrollerHamburger.classList.remove("hidden")
+    listItems.classList.remove("hidden");
+    fixedHeader.classList.remove("hidden");
+    } else if (window.scrollY <= 120) {
+        scrollerHamburger.classList.add("hidden");
+        listItems.classList.add("hidden");
+       fixedHeader.classList.add("hidden");
+} 
+})
+
+
 githubDiv.addEventListener("click", function () {
     modal.style.display = "none";
     blurpage.style.display = "none";
@@ -73,9 +111,16 @@ closeIcon.addEventListener("click", function () {
     modal.style.display = "none";
     blurpage.style.display = "none";
     visible = false;
-})  
+}) 
+
 menu.addEventListener("click", () => {
-    nav.classList.add('open-nav');
+    nav.style.transform = "translateX(0)";
+})
+close.addEventListener("click", () => {
+    nav.style.transform = "translateX(100%)";
+})
+scrollerHamburger.addEventListener("click", () => {
+    nav.style.transform = "translateX(0)";
 })
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -101,6 +146,18 @@ projectsNavLink.addEventListener("click", () => {
     scrollToSection("projects");
 });
 educationNavLink.addEventListener("click", () => {
+    scrollToSection("education");
+});
+homeNavLinkBlack.addEventListener("click", () => {
+    scrollToSection("home");
+});
+skillsNavLinkBlack.addEventListener("click", () => {
+    scrollToSection("skills");
+});
+projectsNavLinkBlack.addEventListener("click", () => {
+    scrollToSection("projects");
+});
+educationNavLinkBlack.addEventListener("click", () => {
     scrollToSection("education");
 });
 images.forEach(image => {
@@ -260,7 +317,7 @@ image5.addEventListener("mouseleave", hideIcon5);
 image5.addEventListener("mouseenter", showIcon5);
 image6.addEventListener("mouseleave", hideIcon6);
 image6.addEventListener("mouseenter", showIcon6);
-image7.addEventListener("mouseleave", hideIcon6);
-image7.addEventListener("mouseenter", showIcon6);
+image7.addEventListener("mouseleave", hideIcon7);
+image7.addEventListener("mouseenter", showIcon7);
 
 

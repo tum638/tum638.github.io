@@ -27,7 +27,7 @@
         text-decoration: none;
         font-size: 1.3rem;
     }
-    nav {
+    nav.main-nav {
         
     position: fixed;
     right: 0;
@@ -468,9 +468,8 @@
         color:#186b64 ;
     }
     section.contact-me {
-    
-        
-        
+
+
         
         div.contact-me-heading {
         display:flex;
@@ -510,24 +509,9 @@
     }
     .contact-me-form {
         position: relative;
-        // background-color:blue;
+
         width: 100%;
 
-       .contact-me-image-containter {
-        // background-color: red;
-        z-index: -4;
-        height: 100%;
-
-        .contact-me-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            overflow: hidden;
-            clip-path: inset(0% 10% 10% 10%);
-
-        }
-
-       }
         .contact {
             z-index:-4;
             position: absolute;
@@ -574,6 +558,7 @@
             justify-content: center;
             flex-direction: column;
 
+
         
 
             .textarea {
@@ -608,6 +593,7 @@
                 cursor: pointer;
                 text-align: center;
                 background:  #186b64;
+                margin-bottom: 2em;
                  &:hover {
         cursor: pointer;
         background: #000;
@@ -625,9 +611,6 @@
         font-size: small;
     }
     .modal {
-
-
-
         display: none;
         padding: 2em;
         position:fixed;
@@ -639,9 +622,7 @@
         min-width: 300px;
         color: white;
         width: 70vw;
-
         border: none;
-
         z-index: 999999;
         transform: translate(-50%, -50%);
         .dialog-header {
@@ -726,13 +707,55 @@
 
     }
    
-     
+    .open-nav {
+        transform: translateX(0);
+    } 
+    
+    .menu-scroll-container {
+        background-color: white;
+        width: 32px;
+        height: 32px;
+        position:fixed;
+        right:2%;
+        top:0;
+        z-index: 999999;
+        
+
+    }
     
     @media only screen and (min-width: 680px) {
         body {
             margin:5em;
 
         }
+        .menu-scroll-container {
+            display: none;
+        }
+        .scroll {
+            position: fixed;
+            top:93%;
+            background-color: black;
+            width: 100%;
+            height: 4em;
+            right:0;
+            text-align: center;
+            color: white;
+            z-index: 999999;
+            ul{
+               display: flex;
+               justify-content: space-evenly;
+               align-items:center;
+              li {
+                text-decoration: none;
+                list-style-type: none;
+                color: white;
+                &:hover {
+                    color:#22958c
+                }
+              }
+            }
+        }
+       
         .name {
         padding: 0;
         font-size: 4rem;
@@ -767,6 +790,7 @@
             transform: translateY(3rem);
             animation: fadeInUp 2s ease 2.2s forwards;
         }
+        
 
     @keyframes typewriter {
         to { left: 100%;}
@@ -796,7 +820,13 @@
             justify-content: space-evenly;
             align-items: flex-start;
         }
-        nav {
+        .menu {
+            display: none;
+        }
+        
+
+        nav.main-nav {
+            display:flex;
             transform: translateX(0);
             position: unset;
             background: none;

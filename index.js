@@ -40,13 +40,13 @@ const links = ["https://github.com/leemabhena/logahs-website",
     "https://github.com/tum638/ecommerce",
     "https://github.com/tum638/tumpersonal"
 ]
-const descriptions = [`This is school website provides important information
-to students, parents and stuff such news, announcements, schedules, calendars, resources and forms.
-It also has a neat contact us feature. We made the frontend using react and the backend API using django rest framework.
+const descriptions = [`This is school website that provides important information
+to students, parents and stuff such as news, announcements, schedules, calendars, resources and forms.
+It also has a neat contact-us feature. We made the frontend using react and the backend API using django rest framework.
 Thanks to Liberty for inviting me to be a collaborator in making this website!
                   `,
 `This app helps librarians and library patrons manage and access the distribution of books to students.
-The app the user to electronically manage the borrowing and returning of books. It has a neat feature that allows it 
+The app allows the user to electronically manage the borrowing and returning of books. It has a neat feature that allows it 
 to instantly capture all the information of a book (Its title, author, etc) by scanning the ISBN of the book. This is 
 an efficient way of storing data for new books in the database. I developed the app with react and django REST framework.
 `,
@@ -54,10 +54,10 @@ an efficient way of storing data for new books in the database. I developed the 
 
 "A pygame tic-tac-toe that uses the minimax-algorithm to generate optimum moves for the computer. Inspired by CS50-AI",
 "A minesweeper pygame that uses concepts of knowledge and logic to suggest moves to the player.",
-`An ecommerce site that allows users to bid for items, add items to a wathlist and do general buying and selling of products. The app was
-created using django and django templates`,
+`An ecommerce site that allows users to bid for items, add items to a watchlist and do general buying and selling of products. I
+created this app using django and django templates`,
     `This is a website I created to showcase my past projects, education, skills and experience. It's also a way through which anyone
-    who is interested to me can reach out. I created the website using HTML, CSS and javascript. Feel free to reach out!`
+    who is interested in my work can reach out to me. I created the website using HTML, CSS and javascript. Feel free to reach out!`
 ]
 
 const modal = document.querySelector(".modal");

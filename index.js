@@ -14,7 +14,9 @@ import "https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js";
     const image6 = document.getElementById("project-6-image");
 const viewIcon6 = document.getElementById("view-6-icon");
     const image7 = document.getElementById("project-7-image");
-    const viewIcon7 = document.getElementById("view-7-icon");
+const viewIcon7 = document.getElementById("view-7-icon");
+    const image8 = document.getElementById("project-8-image");
+    const viewIcon8 = document.getElementById("view-8-icon");
     const images = document.querySelectorAll(".img-container");
     const githubLink = document.querySelector(".access-git-p");
     const githubDiv = document.querySelector(".access-git");
@@ -34,11 +36,13 @@ const nav = document.querySelector('.main-nav')
 const close = document.querySelector(".close");
 const links = ["https://github.com/leemabhena/logahs-website",
 "https://github.com/tum638/Library_Manager",
-"https://github.com/tum638/web102_prework",
+"https://github.com/tum638/gtd",
 "https://github.com/tum638/AI-driven-tic-tac-toe",
 "https://github.com/tum638/AI-driven-minesweeper",
     "https://github.com/tum638/ecommerce",
-    "https://github.com/tum638/tumpersonal"
+    "https://github.com/tum638/tumpersonal",
+    "https://github.com/tum638/web102_prework"
+    
 ]
 const descriptions = [`This is school website that provides important information
 to students, parents and stuff such as news, announcements, schedules, calendars, resources and forms.
@@ -50,7 +54,8 @@ The app allows the user to electronically manage the borrowing and returning of 
 to instantly capture all the information of a book (Its title, author, etc) by scanning the ISBN of the book. This is 
 an efficient way of storing data for new books in the database. I developed the app with react and django REST framework.
 `,
-    "Sea Monster a hypothetical a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.",
+`The objective of the memory game is to match pairs of cards that have the same image or pattern on them. The game board is set up with a number of cards face down. The Player makes tries by flipping over two cards at a time. If the cards match, they remain face up on the board. If the cards do not match, they are flipped back over. The goal is to remember the location of each card and match as many pairs as possible in the least amount of turns. The game is over when all pairs have been matched!`
+   ,
 
 "A pygame tic-tac-toe that uses the minimax-algorithm to generate optimum moves for the computer. Inspired by CS50-AI",
 "A minesweeper pygame that uses concepts of knowledge and logic to suggest moves to the player.",
@@ -58,6 +63,9 @@ an efficient way of storing data for new books in the database. I developed the 
 created this app using django and django templates`,
     `This is a website I created to showcase my past projects, education, skills and experience. It's also a way through which anyone
     who is interested in my work can reach out to me. I created the website using HTML, CSS and javascript. Feel free to reach out!`
+    ,
+     "Sea Monster a hypothetical a website for the company Sea Monster Crowdfunding that displays information about the games they have funded."
+    
 ]
 
 const modal = document.querySelector(".modal");
@@ -171,7 +179,7 @@ images.forEach(image => {
         modal.querySelector('h1').innerHTML = projectHeader;
         
         modal.querySelector('p').innerHTML = descriptions[id - 1];
-
+        console.log(githubLink.href)
         githubLink.href = links[id - 1];
 
 
@@ -304,6 +312,12 @@ function hideIcon7() {
 function showIcon7() {
     viewIcon7.classList.remove('hidden');
 }
+function hideIcon8() {
+    viewIcon8.classList.add('hidden');
+}
+function showIcon8() {
+    viewIcon8.classList.remove('hidden');
+}
 
 image1.addEventListener("mouseleave", hideIcon1);
 image1.addEventListener("mouseenter", showIcon1);
@@ -319,5 +333,9 @@ image6.addEventListener("mouseleave", hideIcon6);
 image6.addEventListener("mouseenter", showIcon6);
 image7.addEventListener("mouseleave", hideIcon7);
 image7.addEventListener("mouseenter", showIcon7);
+image8.addEventListener("mouseleave", hideIcon8);
+image8.addEventListener("mouseenter", showIcon8);
+
+
 
 
